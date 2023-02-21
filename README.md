@@ -7,7 +7,8 @@
   - [] Deve salvar os arquivos em disco
   - [] Deve notificar o progresso
   - [] Deve permitir fazer o upload em qualquer formato
-  - [] Deve reduzir o tamanho de arquivos em formato de imagem
+  - [] Deve ser possivel reduzir o tamanho de arquivos em formato de imagem
+  - [] Deve ser possivel fazer a traducao de videos
 
 - WEB
   - [] Deve listar os arquivos baixados
