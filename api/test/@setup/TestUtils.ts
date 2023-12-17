@@ -1,4 +1,5 @@
 import { Readable, Writable, Transform } from 'node:stream'
+import { vi } from 'vitest'
 
 export class TestUtils {
   static genReadableStream(data) {
@@ -31,5 +32,14 @@ export class TestUtils {
         cb(null, chunk)
       }
     })
+  }
+
+  static getTimeFromDate (dateString: string) {
+    return new Date(dateString).getTime()
+  }
+
+  static mockDateNow (mockPeriods: number[]) {
+    const now = vi.spyOn(global.Date, global.Date.now.name as unknown as any)
+    mockPeriods.forEach(period => now.mockReturnValueOnce(period))
   }
 }

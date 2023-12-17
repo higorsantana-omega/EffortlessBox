@@ -89,4 +89,28 @@ describe('Upload', () => {
     expect(onWrite).toBeCalledTimes(messages.length)
     expect(onWrite.mock.calls.join()).toEqual(messages.join())
   })
+
+  it('should return true when time is later specified delay', async () => {
+    const uploadProvider = new UploadProvider(io, socketId)
+
+    const before = TestUtils.getTimeFromDate('2023-12-01 00:00:00')
+    const now = TestUtils.getTimeFromDate('2023-12-01 00:00:03')
+
+    TestUtils.mockDateNow([now])
+
+    const result = uploadProvider.canExecute(before)
+    expect(result).toBeTruthy()
+  })
+
+  it('should return false when time isnt later specified delay', async () => {
+    const uploadProvider = new UploadProvider(io, socketId)
+
+    const before = TestUtils.getTimeFromDate('2023-12-01 00:00:01')
+    const now = TestUtils.getTimeFromDate('2023-12-01 00:00:00')
+
+    TestUtils.mockDateNow([now])
+
+    const result = uploadProvider.canExecute(before)
+    expect(result).toBeFalsy()
+  })
 })
