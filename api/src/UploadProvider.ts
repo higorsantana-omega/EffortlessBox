@@ -11,6 +11,7 @@ const downloadsPath = path.join(__dirname, '..', 'downloads')
 
 export class UploadProvider {
   private lastMessageSent
+  private messageDelay = 200
 
   constructor (
     private readonly io: any,
@@ -59,7 +60,9 @@ export class UploadProvider {
     return handleData.bind(this)
   }
 
-  canExecute (lastExecution) {
-
+  canExecute (lastExecution: number) {
+    return (
+      Date.now() - lastExecution
+    ) > this.messageDelay
   }
 }
