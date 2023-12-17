@@ -52,7 +52,9 @@ export class UploadProvider {
           continue
         }
 
+        this.lastMessageSent = Date.now()
         this.io.to(this.socketId).emit('file-upload', { processed, filename })
+
         console.info(`file ${filename} got ${processed} bytes to ${this.socketId}`)
       }
     }
@@ -63,6 +65,6 @@ export class UploadProvider {
   canExecute (lastExecution: number) {
     return (
       Date.now() - lastExecution
-    ) > this.messageDelay
+    ) >= this.messageDelay
   }
 }

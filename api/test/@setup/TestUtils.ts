@@ -5,9 +5,9 @@ export class TestUtils {
   static genReadableStream(data) {
     return new Readable({
       read() {
-        data.forEach(d => {
-          this.push(d)
-        })
+        for (const d of data) {
+          this.push(d) 
+        }
 
         this.push(null)
       }
