@@ -20,7 +20,7 @@ export class UploadProvider {
     private readonly socketId: any
   ) { }
 
-  registerEvents(headers: any, onFinish: (data: unknown) => void) {
+  registerEvents(headers: any, onFinish: (response: unknown) => void) {
     const busboy = new Busboy({ headers: headers as BusboyHeaders })
 
      busboy.on('file', this.onFile.bind(this))
