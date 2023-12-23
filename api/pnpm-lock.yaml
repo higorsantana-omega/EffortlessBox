@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@fastify/busboy':
+    specifier: ^2.1.0
+    version: 2.1.0
   express:
     specifier: ^4.18.2
     version: 4.18.2
@@ -16,6 +19,9 @@ dependencies:
     version: 4.6.1
 
 devDependencies:
+  '@types/busboy':
+    specifier: ^1.5.3
+    version: 1.5.3
   '@types/express':
     specifier: ^4.17.21
     version: 4.17.21
@@ -443,6 +449,11 @@ packages:
     dev: true
     optional: true
 
+  /@fastify/busboy@2.1.0:
+    resolution: {integrity: sha512-+KpH+QxZU7O4675t3mnkQKcZZg56u+K/Ct2K+N2AZYNVK8kyeo/bI18tI8aPm3tvNNRyTWfj6s5tnGNlcbQRsA==}
+    engines: {node: '>=14'}
+    dev: false
+
   /@jridgewell/resolve-uri@3.1.0:
     resolution: {integrity: sha512-F2msla3tad+Mfht5cJq7LSXcdudKTWCVYUgw6pLFOOHSTtZlj6SWNYAp+AhuqLmWdBO2X5hPrLcu8cVP8fy28w==}
     engines: {node: '>=6.0.0'}
@@ -587,6 +598,12 @@ packages:
     resolution: {integrity: sha512-fB3Zu92ucau0iQ0JMCFQE7b/dv8Ot07NI3KaZIkIUNXq82k4eBAqUaneXfleGY9JWskeS9y+u0nXMyspcuQrCg==}
     dependencies:
       '@types/connect': 3.4.38
+      '@types/node': 18.14.0
+    dev: true
+
+  /@types/busboy@1.5.3:
+    resolution: {integrity: sha512-YMBLFN/xBD8bnqywIlGyYqsNFXu6bsiY7h3Ae0kO17qEuTjsqeyYMRPSUDacIKIquws2Y6KjmxAyNx8xB3xQbw==}
+    dependencies:
       '@types/node': 18.14.0
     dev: true
 

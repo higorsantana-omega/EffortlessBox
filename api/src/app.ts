@@ -1,6 +1,3 @@
-import fastify, { FastifyReply } from "fastify"
-import fastifyIO from 'fastify-socket.io'
-import fastifyMultipart from '@fastify/multipart'
 import { FileProvider } from "./FileProvider"
 import { UploadProvider } from "./UploadProvider"
 import { pipeline } from "node:stream/promises"

@@ -4,8 +4,6 @@ import path, { dirname } from "path"
 import { fileURLToPath } from 'url'
 
 import Busboy, { BusboyHeaders } from '@fastify/busboy'
-import { IncomingHttpHeaders } from 'node:http'
-import { MultipartFile } from '@fastify/multipart'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
