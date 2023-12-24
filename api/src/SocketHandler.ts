@@ -4,8 +4,6 @@ import { Server, Socket } from "socket.io";
 export class SocketHandler {
   private server!: Server
 
-  constructor () {}
-
   setServer(httpServer: HttpServer) {
     this.server = new Server(httpServer, {
       cors: { origin: '*'} 

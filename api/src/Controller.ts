@@ -5,16 +5,19 @@ import { Request, Response } from "express"
 import { SocketHandler } from "./SocketHandler"
 
 export class Controller {
-  constructor (
-    private socketHandler: SocketHandler
-  ) {}
+  constructor(
+    private readonly socketHandler: SocketHandler
+  ) {
+    this.getAll = this.getAll.bind(this)
+    this.upload = this.upload.bind(this)
+  }
 
   async getAll(request: Request, response: Response) {
     const files = await FileProvider.getFilesStatus()
     response.send(files)
   }
 
-  async upload (request: Request, response: Response) {
+  async upload(request: Request, response: Response) {
     const { socketId } = request.query as any
 
     const uploadProvider = new UploadProvider(

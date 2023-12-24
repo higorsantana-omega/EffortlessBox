@@ -1,9 +1,9 @@
 import { createServer } from 'http'
 import { SocketHandler } from './SocketHandler'
-import app from './app'
 import { Controller } from './Controller'
+import app from './app'
 
-function start () {
+function start() {
   const server = createServer(app)
 
   const socketHandler = new SocketHandler()
