@@ -2,3 +2,38 @@ node_modules
 api/node_modules
 api/dist
 
+# Mobile
+
+# dependencies
+mobile/node_modules/
+
+# Expo
+mobile/.expo/
+mobile/dist/
+mobile/web-build/
+
+# Native
+mobile/*.orig.*
+mobile/*.jks
+mobile/*.p8
+mobile/*.p12
+mobile/*.key
+mobile/*.mobileprovision
+
+# Metro
+mobile/.metro-health-check*
+
+# debug
+mobile/npm-debug.*
+mobile/yarn-debug.*
+mobile/yarn-error.*
+
+# macOS
+mobile/.DS_Store
+mobile/*.pem
+
+# local env files
+mobile/.env*.local
+
+# typescript
+mobile/*.tsbuildinfo
