@@ -3,10 +3,10 @@
 ## Features
 
 - API
-  - [] Deve listar os arquivos baixados
-  - [] Deve salvar os arquivos em disco
-  - [] Deve notificar o progresso
-  - [] Deve permitir fazer o upload em qualquer formato
+  - [x] Deve listar os arquivos baixados
+  - [x] Deve salvar os arquivos em disco
+  - [x] Deve notificar o progresso
+  - [x] Deve permitir fazer o upload em qualquer formato
   - [] Deve ser possivel reduzir o tamanho de arquivos em formato de imagem
   - [] Deve ser possivel fazer a traducao de videos
 
