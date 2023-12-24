@@ -5,12 +5,14 @@ import { describe, expect, it, vi } from 'vitest'
 
 import { UploadProvider } from '../../src/UploadProvider'
 import { TestUtils } from '../@setup/TestUtils'
+import { SocketHandler } from '../../src/SocketHandler'
+import { Server, IncomingMessage, ServerResponse } from 'http'
 
 describe('Upload', () => {
   const io = {
-    emit: (event, message) => {},
-    to: (id) => io
-  }
+    emit: (socketId, data) => { },
+    listen: () => {}
+  } as unknown as SocketHandler
 
   const socketId = 'test'
 
@@ -62,7 +64,6 @@ describe('Upload', () => {
   })
 
   it('should send bytes to client', async () => {
-    vi.spyOn(io, io.to.name as unknown as any)
     vi.spyOn(io, io.emit.name as unknown as any)
     const onWrite = vi.fn()
 
@@ -83,7 +84,6 @@ describe('Upload', () => {
       target
     )
 
-    expect(io.to).toHaveBeenCalledTimes(messages.length)
     expect(io.emit).toHaveBeenCalledTimes(messages.length)
 
     expect(onWrite).toBeCalledTimes(messages.length)

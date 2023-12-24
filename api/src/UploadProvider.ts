@@ -4,6 +4,7 @@ import path, { dirname } from "path"
 import { fileURLToPath } from 'url'
 
 import Busboy, { BusboyHeaders } from '@fastify/busboy'
+import { SocketHandler } from './SocketHandler'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -14,8 +15,8 @@ export class UploadProvider {
   private messageDelay = 200
 
   constructor(
-    private readonly io: any,
-    private readonly socketId: any
+    private readonly io: SocketHandler,
+    private readonly socketId: string
   ) { }
 
   registerEvents(headers: any, onFinish: (response: unknown) => void) {
@@ -53,7 +54,7 @@ export class UploadProvider {
         }
 
         this.lastMessageSent = Date.now();
-        this.io.to(this.socketId).emit('file-upload', { processed, filename });
+        this.io.emit(this.socketId, { processed, filename })
 
         console.info(`file ${filename} got ${processed} bytes to ${this.socketId}`);
       }
